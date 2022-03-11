@@ -1,4 +1,4 @@
-package step5;
+package study.step5;
 
 import java.util.ArrayList;
 import java.util.List;

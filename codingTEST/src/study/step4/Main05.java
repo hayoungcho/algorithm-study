@@ -1,4 +1,4 @@
-package step4;
+package study.step4;
 
 import java.util.Collections;
 import java.util.Scanner;
