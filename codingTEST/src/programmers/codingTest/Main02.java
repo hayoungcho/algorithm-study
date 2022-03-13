@@ -30,7 +30,7 @@ public class Main02 {
 			arr[i][x] = ++num; 
 			endFlag = false;
 		}
-		return i;
+		return y;
 	}
 	public int left(int x, int y) {
 		this.x--;
@@ -41,7 +41,7 @@ public class Main02 {
 			arr[x][i] = ++num; 
 			endFlag = false;
 		}
-		return i;
+		return x;
 	}
 	public int top(int x, int y) {
 		this.y--;
