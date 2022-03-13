@@ -1,7 +1,7 @@
 package study.step7;
 
 import java.util.Scanner;
-
+//부분집합 구하기
 public class Main06 {
 	static int n;
 	static int[] ch;
