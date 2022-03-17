@@ -37,8 +37,5 @@ public class Main03 {
 		dfs(0, 0, 0);
 		
 		System.out.println(ans);
-		
-		
 	}
-
 }
