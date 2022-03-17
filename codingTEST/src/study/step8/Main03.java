@@ -2,26 +2,24 @@ package study.step8;
 
 import java.util.Scanner;
 
+//최대점수구하기(DFS)
 public class Main03 {
 	
 	static int ans = 0;
 	static int[][] arr;
 	static int timeLimit = 0;
 	static int n = 0;
-	static int maxScore = 0;
-	static int totTime = 0;
 
 	public static void dfs(int level, int score, int time) {
-		if(timeLimit < totTime)
+		if(timeLimit < time)
 			return;
 		
-		if(level == n) {
-			ans = Math.max(ans, maxScore);
+		if(level == (n - 1)) {
+			ans = Math.max(ans, score);
 		}else {
-			dfs(level + 1, maxScore + arr[level][0], totTime + arr[level][1]);
-			dfs(level + 1, maxScore, totTime);
+			dfs(level + 1, score + arr[level][0], time + arr[level][1]);
+			dfs(level + 1, score, time);
 		}
-					
 	}
 	
 	public static void main(String[] args) {
