@@ -2,7 +2,7 @@ package study.step8;
 
 import java.util.Scanner;
 
-//섬나라 아일랜드
+//섬나라 아일랜드(dfs)
 public class Main13 {
 	static int arr[][];
 	static int ans = 0;

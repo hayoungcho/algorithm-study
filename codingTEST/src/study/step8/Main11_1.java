@@ -21,7 +21,7 @@ public class Main11_1 {
 	static int[] dx = {0, -1, 0, 1};
 	static int[] dy = {1, 0, -1, 0};
 	
-	public static void dfs(int x, int y) {
+	public static void bfs(int x, int y) {
 		Queue<Point> que = new LinkedList<Point>();
 		que.offer(new Point(x, y));
 		
@@ -50,7 +50,7 @@ public class Main11_1 {
 		}
 		//Ω√¿€¡° change
 		board[1][1] = 1;
-		dfs(1, 1);
+		bfs(1, 1);
 		
 		int ans = dis[7][7];
 		if(ans == 0)
