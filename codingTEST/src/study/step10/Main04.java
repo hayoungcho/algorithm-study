@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
+//가장 높은 탑 쌓기
 class Brick implements Comparable<Brick>{
 	int dimen;
 	int height;
