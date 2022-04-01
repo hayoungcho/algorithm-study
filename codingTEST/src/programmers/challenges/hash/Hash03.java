@@ -1,4 +1,4 @@
-package programmers.hash;
+package programmers.challenges.hash;
 
 import java.util.ArrayList;
 import java.util.Collections;
