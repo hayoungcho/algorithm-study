@@ -1,4 +1,4 @@
-package programmers.date20220320;
+package programmers.codingTest.date20220320;
 
 public class Main02 {
 	public static int[] solution(int[] black_caps) {

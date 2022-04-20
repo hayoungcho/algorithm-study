@@ -1,4 +1,4 @@
-package programmers.date20220320;
+package programmers.codingTest.date20220320;
 
 import java.util.ArrayList;
 

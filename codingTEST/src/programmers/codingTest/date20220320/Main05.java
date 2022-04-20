@@ -1,4 +1,4 @@
-package programmers.date20220320;
+package programmers.codingTest.date20220320;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,7 +17,6 @@ public class Main05 {
         	if(open.contains(c))
         		stack.push(c);
         	else {
-        		int tmp = stack.peek();
         		//½ÖÀÌ ¸Â´Â °ıÈ£¸é
         		if(close.indexOf(c) == open.indexOf(stack.peek()))
         			stack.pop();
