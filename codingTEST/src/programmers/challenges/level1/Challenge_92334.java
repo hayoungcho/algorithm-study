@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 //신고결과받기
-public class challenge_92334 {
+public class Challenge_92334 {
 	public static int[] solution(String[] id_list, String[] report, int k) {
        int[] answer = new int[id_list.length];
        Map<String, Integer> reportCnt = new HashMap<String, Integer>();
