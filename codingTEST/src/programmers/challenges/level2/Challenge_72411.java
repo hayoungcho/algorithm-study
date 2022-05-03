@@ -2,49 +2,61 @@ package programmers.challenges.level2;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 //메뉴 리뉴얼
 public class Challenge_72411 {
 	static HashMap<String, Integer> cntMap = new HashMap<String, Integer>();
 	
-	public static void combination(String word, int length, int count, int ch[], int index) {
-		if(length == count) {
-			StringBuilder s = new StringBuilder();
-			for(int i = 0; i < ch.length; i++) {
-				if(ch[i] == 1)
-					s.append(word.charAt(i));
+	public static void combination(char[] order, int[] ch, int idx, int r) {
+		if (r == 0) {
+			StringBuilder str = new StringBuilder();
+			for (int i = 0; i < order.length; i++) {
+				if (ch[i] == 1)
+					str.append(order[i]);
 			}
-			cntMap.put(s.toString(), cntMap.getOrDefault(s.toString(), 0) + 1);
-		}else {
-			ch[index] = 1;
-			combination(word, length, count + 1, ch, index + 1);
-			ch[index] = 0;
-			
+			cntMap.put(str.toString(), cntMap.getOrDefault(str.toString(), 0) + 1);
+		} else {
+			for (int i = idx; i < order.length; i++) {
+				ch[i] = 1;
+				combination(order, ch, i + 1, r - 1);
+				ch[i] = 0;
+			}
 		}
 	}
+	
 	public static String[] solution(String[] orders, int[] course) {
-        String[] answer = {};
-        
-        for(String order : orders) {
-        	for(int i = 2; i < order.length(); i++) {
-        		combination(order, i, 0, new int[order.length()], 0);
-        	}
-        }
-        
-        ArrayList<Integer> countList = new ArrayList<Integer>();
-        Arrays.asList(course);
-        
-        ArrayList<String> combiList = new ArrayList<String>();
-        for(String combi : cntMap.keySet()) {
-        	if(countList.contains(cntMap.get(combi)))
-        		combiList.add(combi);
-        }
-        
-        Collections.sort(combiList);
-        answer = (String[]) combiList.toArray(new String[0]);
-        return answer;
+		List<String> answer = new ArrayList<>();
+		
+		for(int i = 0; i< course.length; i++){
+			for(int j = 0; j < orders.length; j++){
+				int[] check = new int[orders[j].length()];
+				char[] order = orders[j].toCharArray();
+				Arrays.sort(order);
+				combination(order, check, 0, course[i]);
+			}
+
+			List<Map.Entry<String, Integer>> mapToList = new ArrayList<>(cntMap.entrySet());
+
+			//내림차순
+			mapToList.sort((key1, key2) -> key2.getValue().compareTo(key1.getValue()));
+
+			int max = 0;
+			for(Map.Entry<String, Integer> entry : mapToList) {
+				if(entry.getValue() >= 2 && max <= entry.getValue()) {
+					max = entry.getValue();
+					answer.add(entry.getKey());
+				}
+			}
+			cntMap.clear();
+		}
+
+		String[] answerArr = answer.toArray(new String[1]);
+		Arrays.sort(answerArr);
+
+		return answerArr;
     }
 	
 	public static void main(String[] args) {
