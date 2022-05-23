@@ -1,4 +1,4 @@
-package programmers.challenges.level1;
+package programmers.challenges.level2;
 
 //거리두기 확인하기
 public class Challenge_81302 {
