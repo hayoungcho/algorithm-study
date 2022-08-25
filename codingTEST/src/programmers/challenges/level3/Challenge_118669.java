@@ -7,20 +7,22 @@ public class Challenge_118669 {
 	static int peak = Integer.MAX_VALUE;
 	static int[][] graph;
 	
+//	등산로 입구는 나가는 방향만, 산봉우리는 들어오는 방향만
 	public static int[] solution(int n, int[][] paths, int[] gates, int[] summits) {
         int[] answer = new int[2];
         
         graph = new int[n + 1][n + 1];
         
         for(int[] path : paths) {
-        	graph[path[0]][path[1]] = path[2];
-        	graph[path[1]][path[0]] = path[2];
-        }
-        
-        for(int i = 1; i < graph.length; i++) {
-        	for(int j = 1; j < graph.length; j++) {
-        		if(graph[i][j] > 0)
-        			graph[i][0]++;
+        	//첫번째가 입구거나 두번째가 꼭짓점이면 들어가는 방향만
+        	if(containsChk(gates, path[0]) || containsChk(summits, path[1]))
+        		graph[path[0]][path[1]] = path[2];
+        	//첫번째가 꼭짓점이거나 두번째가 입구면 나가는방향만
+        	else if(containsChk(gates, path[1]) || containsChk(summits, path[0]))
+    			graph[path[1]][path[0]] = path[2];
+        	else {
+        		graph[path[0]][path[1]] = path[2];
+        		graph[path[1]][path[0]] = path[2];
         	}
         }
         
@@ -29,8 +31,10 @@ public class Challenge_118669 {
         
         answer[0] = peak;
         answer[1] = intensity;
+        String aa = "";
         
         return answer;
+        
     }
 	
 	//산봉우리는 하나만
